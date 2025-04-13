@@ -21,27 +21,22 @@ public class Student implements UserAction {
 
     @Override
     public void completeCourse(Course course) {
-        boolean found = false;
         for (Course c : enrolledCourses) {
             if (c == course) {
-                found = true;
-                break;
+
+                Course[] newArr = new Course[completedCourses.length + 1];
+                for (int i = 0; i < completedCourses.length; i++) {
+                    newArr[i] = completedCourses[i];
+                }
+                newArr[completedCourses.length] = course;
+                completedCourses = newArr;
+                System.out.println(name + " completed course: " + course.title);
+                return;
             }
         }
 
-        if (found) {
-            Course[] newArr = new Course[completedCourses.length + 1];
-            for (int i = 0; i < completedCourses.length; i++) {
-                newArr[i] = completedCourses[i];
-            }
-            newArr[completedCourses.length] = course;
-            completedCourses = newArr;
-            System.out.println(name + " completed course: " + course.title);
-        } else {
-            System.out.println(name + " is not enrolled in " + course.title);
-        }
+        System.out.println(name + " is not enrolled in " + course.title);
     }
-
     public void printStatus() {
         System.out.println("Student: " + name);
         System.out.println("Enrolled Courses:");
