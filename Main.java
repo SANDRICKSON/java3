@@ -2,7 +2,7 @@ public class Main {
     public static void main(String[] args) {
 
         Instructor instructor1 = new Instructor("Vakho", "Java Developer");
-        Instructor instructor2 = new Instructor("Sandro", "UX Designer");
+        Instructor instructor2 = new Instructor("Sandro", "UI/UX Designer");
 
 
         Course course1 = new Course("Java Development", instructor1, CourseCategory.PROGRAMMING);
